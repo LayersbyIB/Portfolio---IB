@@ -4,7 +4,7 @@ import { projects } from "@/lib/data";
 
 export function Projects() {
   return (
-    <section className="mb-24">
+    <section>
       <SectionHeader title="projects" />
       <div className="flex flex-col gap-2">
         {projects.map((project) => (

@@ -4,7 +4,7 @@ import { works } from "@/lib/data";
 
 export function Works() {
   return (
-    <section className="mb-24">
+    <section className="mb-16">
       <SectionHeader title="works" />
       <div className="flex flex-col gap-2">
         {works.map((work) => (

@@ -10,7 +10,7 @@ interface PortfolioItemProps {
 
 export function PortfolioItem({ title, role, description, tags }: PortfolioItemProps) {
   return (
-    <div className="group relative -mx-4 flex flex-col gap-3 rounded-2xl p-4 transition-colors duration-300 hover:bg-black/[0.04]">
+    <div className="group relative -mx-4 flex flex-col gap-3 rounded-2xl p-4 transition-colors duration-300 [@media(hover:hover)]:hover:bg-black/[0.04] active:bg-black/[0.04]">
       
       {/* Header: Title and Role */}
       <div className="flex items-baseline gap-3">
@@ -31,12 +31,12 @@ export function PortfolioItem({ title, role, description, tags }: PortfolioItemP
       </div>
 
       {/* Hover State Tooltip (Solid Black Block exactly matching item height) */}
-      <div className="pointer-events-none absolute bottom-0 left-[105%] top-0 z-50 hidden w-[240px] opacity-0 transition-opacity duration-300 group-hover:block group-hover:opacity-100 xl:block">
+      <div className="pointer-events-none absolute bottom-0 left-[105%] top-0 z-50 hidden w-[240px] opacity-0 transition-opacity duration-300 [@media(hover:hover)]:group-hover:block [@media(hover:hover)]:group-hover:opacity-100 xl:block">
         {/* Caret pointing left */}
-        <div className="absolute -left-2 top-1/2 h-0 w-0 -translate-y-1/2 border-y-[8px] border-r-[10px] border-y-transparent border-r-zinc-900 drop-shadow-md"></div>
+        <div className="absolute -left-2 top-1/2 h-0 w-0 -translate-y-1/2 border-y-[8px] border-r-[10px] border-y-transparent border-r-zinc-900"></div>
         
         {/* Solid Black Block taking full height */}
-        <div className="h-full w-full rounded-[16px] bg-zinc-900 shadow-xl"></div>
+        <div className="h-full w-full rounded-[16px] bg-zinc-900"></div>
       </div>
     </div>
   );

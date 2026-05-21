@@ -6,10 +6,10 @@ import { Footer } from "@/components/sections/Footer";
 export default function Home() {
   return (
     <main className="mx-auto max-w-3xl px-6 py-12 md:px-12 md:py-24">
-      <Hero />
-      <Works />
-      <Projects />
-      <Footer />
+      <div className="animate-fade-up"><Hero /></div>
+      <div className="animate-fade-up delay-100"><Works /></div>
+      <div className="animate-fade-up delay-200"><Projects /></div>
+      <div className="animate-fade-up delay-300"><Footer /></div>
     </main>
   );
 }

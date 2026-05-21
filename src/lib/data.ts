@@ -30,13 +30,6 @@ export const works: WorkItem[] = [
     role: "illustrator",
     description: "A dynamic gaming community hub enabling players to connect, compete, and share strategies." + lorem,
     tags: ["Next.js", "GSAP", "Tailwind CSS", "Architecture"],
-  },
-  {
-    id: "nocutbet",
-    title: "No-cut Bet",
-    role: "Lead designer",
-    description: "A decentralized betting protocol offering transparent odds and zero middleman fees." + lorem,
-    tags: ["Next.js", "GSAP", "Tailwind CSS", "Architecture"],
   }
 ];
 
