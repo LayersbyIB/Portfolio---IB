@@ -1,15 +1,15 @@
 "use client";
 
 import { IconButton } from "@/components/ui/IconButton";
-import { Pirata_One } from "next/font/google";
+import { Vampiro_One } from "next/font/google";
 import { Crown } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 
-const pirata = Pirata_One({ weight: "400", subsets: ["latin"] });
+const vampiro = Vampiro_One({ weight: "400", subsets: ["latin"] });
 
 function ScrambleTitle() {
   const original = "ib";
-  const target = "Ifreke B.";
+  const target = "ifreke b.";
   const [text, setText] = useState(original);
   const [isHovered, setIsHovered] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -63,7 +63,7 @@ function ScrambleTitle() {
 
   return (
     <h1 
-      className={`text-[64px] tracking-tighter text-zinc-900 leading-none cursor-default whitespace-nowrap ${pirata.className}`}
+      className={`text-[64px] tracking-tighter text-zinc-900 leading-none cursor-default whitespace-nowrap ${vampiro.className}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

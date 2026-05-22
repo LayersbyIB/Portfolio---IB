@@ -1,21 +1,23 @@
 import React from "react";
+import Link from "next/link";
 import { Tag } from "@/components/ui/Tag";
 
 interface PortfolioItemProps {
+  id: string;
   title: string;
   role: string;
   description: string;
   tags: string[];
 }
 
-export function PortfolioItem({ title, role, description, tags }: PortfolioItemProps) {
+export function PortfolioItem({ id, title, role, description, tags }: PortfolioItemProps) {
   return (
-    <div className="group relative -mx-4 flex flex-col gap-3 rounded-2xl p-4 transition-colors duration-300 [@media(hover:hover)]:hover:bg-black/[0.04] active:bg-black/[0.04]">
+    <Link href={`/work/${id}`} className="group relative -mx-4 flex flex-col gap-3 rounded-2xl p-4 transition-colors duration-300 [@media(hover:hover)]:hover:bg-black/[0.04] active:bg-black/[0.04]">
       
       {/* Header: Title and Role */}
       <div className="flex items-baseline gap-3">
         <h3 className="text-[17px] font-semibold text-zinc-900">{title}</h3>
-        <span className="text-sm text-zinc-400">{role}</span>
+        <span className="text-sm font-mono text-zinc-400">{role}</span>
       </div>
 
       {/* Description */}
@@ -38,6 +40,6 @@ export function PortfolioItem({ title, role, description, tags }: PortfolioItemP
         {/* Solid Black Block taking full height */}
         <div className="h-full w-full rounded-[16px] bg-zinc-900"></div>
       </div>
-    </div>
+    </Link>
   );
 }
