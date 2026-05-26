@@ -2,8 +2,8 @@
 
 export function Footer() {
   return (
-    <footer className="mt-16 flex flex-col items-center justify-between gap-6 border-t border-zinc-200 pb-12 pt-3 sm:flex-row">
-      <p className="text-sm font-mono text-zinc-500">
+    <footer className="flex flex-col items-center justify-between gap-6 border-t border-zinc-200 pb-12 pt-3 sm:flex-row">
+      <p className="text-sm font-mono text-zinc-300">
         © 2026 LayersbyIB.
       </p>
       <button 

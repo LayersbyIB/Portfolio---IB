@@ -9,7 +9,7 @@ export default function Home() {
       <div className="animate-fade-up"><Hero /></div>
       <div className="animate-fade-up delay-100"><Works /></div>
       <div className="animate-fade-up delay-200"><Projects /></div>
-      <div className="animate-fade-up delay-300"><Footer /></div>
+      <div className="animate-fade-up delay-300 mt-6"><Footer /></div>
     </main>
   );
 }

@@ -8,9 +8,10 @@ interface PortfolioItemProps {
   role: string;
   description: string;
   tags: string[];
+  tooltip?: string;
 }
 
-export function PortfolioItem({ id, title, role, description, tags }: PortfolioItemProps) {
+export function PortfolioItem({ id, title, role, description, tags, tooltip }: PortfolioItemProps) {
   return (
     <Link href={`/work/${id}`} className="group relative -mx-4 flex flex-col gap-3 rounded-2xl p-4 transition-colors duration-300 [@media(hover:hover)]:hover:bg-black/[0.04] active:bg-black/[0.04]">
       
@@ -38,7 +39,11 @@ export function PortfolioItem({ id, title, role, description, tags }: PortfolioI
         <div className="absolute -left-2 top-1/2 h-0 w-0 -translate-y-1/2 border-y-[8px] border-r-[10px] border-y-transparent border-r-zinc-900"></div>
         
         {/* Solid Black Block taking full height */}
-        <div className="h-full w-full rounded-[16px] bg-zinc-900"></div>
+        <div className="h-full w-full rounded-[16px] bg-zinc-900 overflow-hidden">
+          {tooltip && (
+            <img src={tooltip} alt={`${title} preview`} className="h-full w-full object-cover" />
+          )}
+        </div>
       </div>
     </Link>
   );

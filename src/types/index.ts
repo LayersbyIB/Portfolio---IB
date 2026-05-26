@@ -4,24 +4,26 @@ export interface ProjectDetails {
   secondaryText: string;
   grid2Up: [string, string];
   fullWidthImage1: string;
-  productStrategy: {
-    title: string;
-    description: string;
-  };
+  brandIdentityText: string;
   fullWidthImage2: string;
-  userFlow: {
-    title: string;
-    description: string;
-  };
+  colorPaletteText: string;
   fullWidthImage3: string;
   typographySystem: {
     title: string;
     description: string;
   };
+  productStrategy: {
+    title: string;
+    description: string;
+  };
+  userFlow?: {
+    title: string;
+    description: string;
+  };
   complexGrid: {
-    vertical3: [string, string, string];
-    fullWidth: string;
-    square2: [string, string];
+    row1: string;
+    row2: [string, string];
+    row3: string;
   };
 }
 
@@ -29,9 +31,11 @@ export interface WorkItem {
   id: string;
   title: string;
   role: string;
+  date?: string;
   description: string;
   tags: string[];
   link?: string;
+  tooltip?: string;
   details?: ProjectDetails;
 }
 
@@ -39,8 +43,10 @@ export interface ProjectItem {
   id: string;
   title: string;
   role: string;
+  date?: string;
   description: string;
   tags: string[];
   link?: string;
+  tooltip?: string;
   details?: ProjectDetails;
 }

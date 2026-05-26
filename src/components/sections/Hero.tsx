@@ -20,12 +20,13 @@ function ScrambleTitle() {
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!<>-_\\/[]{}—=+*^?#________";
     const finalText = isHovered ? target : original;
     // Capture the initial length when the effect starts
-    let maxLength = Math.max(text.length, finalText.length);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const maxLength = Math.max(text.length, finalText.length);
     
     clearInterval(intervalRef.current!);
     
     intervalRef.current = setInterval(() => {
-      setText((prev) => {
+      setText(() => {
         let nextStr = "";
         for (let i = 0; i < maxLength; i++) {
           if (i < iteration) {
