@@ -248,13 +248,15 @@ export function ProjectContent({ details, projectId }: ProjectContentProps) {
           </div>
 
           {/* Row 3 */}
-          <div className="w-full h-[300px] sm:h-[420px] md:h-[500px] bg-zinc-200 rounded-2xl overflow-hidden mx-auto max-w-[672px] flex items-center justify-center">
+          <div className="w-full rounded-2xl overflow-hidden mx-auto max-w-[672px]">
             {details.complexGrid?.row3 ? (
-              <img src={details.complexGrid.row3} alt="" className="w-full h-full object-cover bg-zinc-50/50" />
+              <img src={details.complexGrid.row3} alt="" className="w-full h-auto block object-cover" />
             ) : (
-              <span className="text-zinc-400 font-mono text-xs uppercase tracking-wider">
-                {projectId} complexgrid row3
-              </span>
+              <div className="w-full h-[300px] sm:h-[420px] md:h-[500px] bg-zinc-200 flex items-center justify-center">
+                <span className="text-zinc-400 font-mono text-xs uppercase tracking-wider">
+                  {projectId} complexgrid row3
+                </span>
+              </div>
             )}
           </div>
         </div>
