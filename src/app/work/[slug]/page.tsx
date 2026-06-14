@@ -32,14 +32,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
   const slug = resolvedParams.slug;
-  
   const allItems = [...works, ...projects];
-  const currentIndex = allItems.findIndex((item) => item.id === slug);
+  const currentIndex = allItems.findIndex((x) => x.id === slug);
+  console.log("ProjectPage - slug:", slug, "found index:", currentIndex, "all slugs:", allItems.map(i => i.id));
   
   if (currentIndex === -1) {
     notFound();
   }
-
+  
   const item = allItems[currentIndex];
   
   const prevItem = currentIndex > 0 ? { slug: allItems[currentIndex - 1].id, title: allItems[currentIndex - 1].title } : undefined;

@@ -25,6 +25,11 @@ export interface ProjectDetails {
     row2: [string, string];
     row3: string;
   };
+  illustrations?: {
+    name: string;
+    description: string;
+    image: string;
+  }[];
 }
 
 export interface WorkItem {

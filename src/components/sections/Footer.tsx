@@ -2,7 +2,7 @@
 
 export function Footer() {
   return (
-    <footer className="flex flex-col items-center justify-between gap-6 border-t border-zinc-200 pb-12 pt-3 sm:flex-row">
+    <footer className="flex items-center justify-between border-t border-zinc-200 pb-12 pt-3">
       <p className="text-sm font-mono text-zinc-300">
         © 2026 LayersbyIB.
       </p>

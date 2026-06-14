@@ -62,11 +62,20 @@ function ScrambleTitle() {
     }, 1000);
   };
 
+  const handleClick = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setIsHovered(true);
+    timeoutRef.current = setTimeout(() => {
+      setIsHovered(false);
+    }, 2000);
+  };
+
   return (
     <h1 
-      className={`text-[64px] tracking-tighter text-zinc-900 leading-none cursor-default whitespace-nowrap ${vampiro.className}`}
+      className={`text-[48px] sm:text-[64px] tracking-tighter text-zinc-900 leading-none cursor-pointer md:cursor-default whitespace-nowrap ${vampiro.className}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={handleClick}
     >
       {text}
     </h1>
@@ -75,6 +84,8 @@ function ScrambleTitle() {
 
 export function Hero() {
   const [emailCopied, setEmailCopied] = useState(false);
+  const [isAvatarHovered, setIsAvatarHovered] = useState(false);
+  const avatarTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText("layersbyib@gmail.com");
@@ -84,13 +95,24 @@ export function Hero() {
     }, 2000);
   };
 
+  const handleAvatarClick = () => {
+    if (avatarTimeoutRef.current) clearTimeout(avatarTimeoutRef.current);
+    setIsAvatarHovered(true);
+    avatarTimeoutRef.current = setTimeout(() => {
+      setIsAvatarHovered(false);
+    }, 2000);
+  };
+
   return (
     <section className="mb-12 flex flex-col items-start pt-12 md:pt-20">
       <div className="mb-2 flex items-center gap-3">
         {/* Avatar Wrapper */}
-        <div className="group relative shrink-0">
+        <div 
+          className="group relative shrink-0 cursor-pointer md:cursor-default"
+          onClick={handleAvatarClick}
+        >
           {/* Hover Crown */}
-          <div className="pointer-events-none absolute -left-3 -top-6 z-10 scale-75 translate-y-2 rotate-0 opacity-0 transition-all duration-300 ease-out delay-[1000ms] group-hover:-rotate-[20deg] group-hover:scale-110 group-hover:translate-y-0 group-hover:opacity-100 group-hover:delay-0 text-amber-400">
+          <div className={`pointer-events-none absolute -left-3 -top-6 z-10 text-amber-400 transition-all duration-300 ease-out ${isAvatarHovered ? "-rotate-[20deg] scale-110 translate-y-0 opacity-100 delay-0" : "scale-75 translate-y-2 rotate-0 opacity-0 delay-[1000ms] group-hover:-rotate-[20deg] group-hover:scale-110 group-hover:translate-y-0 group-hover:opacity-100 group-hover:delay-0"}`}>
             <Crown size={32} fill="currentColor" strokeWidth={1.5} />
           </div>
 
