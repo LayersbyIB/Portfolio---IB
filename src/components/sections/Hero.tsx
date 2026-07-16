@@ -3,81 +3,14 @@
 import { IconButton } from "@/components/ui/IconButton";
 import { Vampiro_One } from "next/font/google";
 import { Crown } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 
 const vampiro = Vampiro_One({ weight: "400", subsets: ["latin"] });
 
 function ScrambleTitle() {
-  const original = "ib";
-  const target = "ifreke b.";
-  const [text, setText] = useState(original);
-  const [isHovered, setIsHovered] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    let iteration = 0;
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!<>-_\\/[]{}—=+*^?#________";
-    const finalText = isHovered ? target : original;
-    // Capture the initial length when the effect starts
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const maxLength = Math.max(text.length, finalText.length);
-    
-    clearInterval(intervalRef.current!);
-    
-    intervalRef.current = setInterval(() => {
-      setText(() => {
-        let nextStr = "";
-        for (let i = 0; i < maxLength; i++) {
-          if (i < iteration) {
-            if (i < finalText.length) {
-              nextStr += finalText[i];
-            }
-          } else {
-            nextStr += chars[Math.floor(Math.random() * chars.length)];
-          }
-        }
-        return nextStr;
-      });
-
-      if (iteration >= maxLength) {
-        clearInterval(intervalRef.current!);
-        setText(finalText);
-      }
-      
-      iteration += 1 / 3;
-    }, 20);
-
-    return () => clearInterval(intervalRef.current!);
-  }, [isHovered]);
-
-  const handleMouseEnter = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => {
-      setIsHovered(false);
-    }, 1000);
-  };
-
-  const handleClick = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setIsHovered(true);
-    timeoutRef.current = setTimeout(() => {
-      setIsHovered(false);
-    }, 2000);
-  };
-
   return (
-    <h1 
-      className={`text-[48px] sm:text-[64px] tracking-tighter text-zinc-900 leading-none cursor-pointer md:cursor-default whitespace-nowrap ${vampiro.className}`}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onClick={handleClick}
-    >
-      {text}
+    <h1 className={`text-[48px] sm:text-[64px] tracking-tighter text-zinc-900 leading-none cursor-default whitespace-nowrap ${vampiro.className}`}>
+      ib
     </h1>
   );
 }
